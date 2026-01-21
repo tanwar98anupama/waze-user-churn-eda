@@ -1,7 +1,9 @@
 import pandas as pd
 import numpy as np
+import os
 
 DATA_PATH = "data/waze.csv"
+SAMPLE_PATH = "data/sample_dataset.csv"
 OUT_SUMMARY = "reports/eda_summary.csv"
 OUT_RESULTS = "reports/results.md"
 
@@ -14,7 +16,8 @@ def safe_divide(a: pd.Series, b: pd.Series) -> pd.Series:
 
 def main():
     # 1) Load data
-    df = pd.read_csv(DATA_PATH)
+    path = DATA_PATH if os.path.exists(DATA_PATH) else SAMPLE_PATH
+    df = pd.read_csv(path)
 
     # 2) Basic info
     rows, cols = df.shape
@@ -51,6 +54,8 @@ def main():
     # 7) Device split by label (% within each label)
     device_pct = (pd.crosstab(df["device"], df["label"], normalize="columns") * 100).round(2)
 
+    os.makedirs("reports", exist_ok=True)
+
     # 8) Write one CSV output with sections (easy to review)
     with open(OUT_SUMMARY, "w", encoding="utf-8") as f:
         f.write("SECTION: BASIC_INFO\n")
@@ -73,7 +78,7 @@ def main():
         device_pct.to_csv(f)
         f.write("\n")
 
-    # 9) Write a short Markdown results file (recruiter-friendly)
+    # 9) Write a short Markdown results file 
     with open(OUT_RESULTS, "w", encoding="utf-8") as f:
         f.write("# Results Summary (Auto-generated)\n\n")
         f.write(f"- Dataset size: **{rows} rows × {cols} columns**\n")
