@@ -1,13 +1,8 @@
-# Python
+# Python junk
 __pycache__/
 *.pyc
-
-# Jupyter
 .ipynb_checkpoints/
 
-# OS
-Thumbs.db
+# OS junk
 .DS_Store
-
-# Don’t upload raw data
-data/
+Thumbs.db
