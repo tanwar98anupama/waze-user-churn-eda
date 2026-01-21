@@ -20,10 +20,13 @@ driven_km_drives, duration_minutes_drives, activity_days, driving_days, device
 - Median comparison by label
 - Device split by label
 
-## How to run
-1) Install:
-```bash
+
+## Data disclaimer
+This repository does not include the raw dataset used for analysis. The data was provided as part of a course/lab environment and is not publicly redistributable. To reproduce the results, place your local copy of the dataset at data/waze.csv and run:
 pip install -r requirements.txt
+python main.py
+
+
 
 
 
