@@ -14,7 +14,7 @@ def safe_divide(a: pd.Series, b: pd.Series) -> pd.Series:
 
 def main():
     # 1) Load data
-    df = pd.read_csv("data/waze.csv")
+    df = pd.read_csv(DATA_PATH)
 
     # 2) Basic info
     rows, cols = df.shape
