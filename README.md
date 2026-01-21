@@ -1,14 +1,14 @@
 # Waze User Churn EDA 
 
-**Tools:** Python, pandas, numpy  
-**Live page:** ( link )
 
-## What this project does
-A simple exploratory data analysis (EDA) project to compare **churn vs retained** Waze users using Python.
+**Tech:** Python, pandas, numpy  
+**Project type:** Exploratory Data Analysis + simple feature engineering  
+**Goal:** Compare behavior patterns between churned vs retained users.
 
-## Dataset columns
-ID, label, sessions, drives, total_sessions, n_days_after_onboarding, total_navigations_fav1, total_navigations_fav2,
-driven_km_drives, duration_minutes_drives, activity_days, driving_days, device
+## Why this repo stands out
+- Uses **clean, beginner-level Python** (no heavy ML libraries)
+- Produces **shareable outputs** (`reports/results.md`, `reports/eda_summary.csv`)
+- Dataset is **not uploaded** (license restrictions), but the repo still runs using a **synthetic sample dataset**
 
 ## What I analyzed
 - Basic data checks (rows/columns, missing values)
@@ -20,11 +20,15 @@ driven_km_drives, duration_minutes_drives, activity_days, driving_days, device
 - Median comparison by label
 - Device split by label
 
-
 ## Data disclaimer
-This repository does not include the raw dataset used for analysis. The data was provided as part of a course/lab environment and is not publicly redistributable. To reproduce the results, place your local copy of the dataset at data/waze.csv and run:
+This repository does not include the original dataset used in the course/lab environment because it is not publicly redistributable.
+To run with the real dataset, place it locally at: `data/waze.csv`.
+
+## Quickstart (runs in under a minute)
+```bash
 pip install -r requirements.txt
 python main.py
+
 
 
 
